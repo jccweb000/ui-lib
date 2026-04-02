@@ -1,5 +1,5 @@
 {
-  "name": "@ui-lib/utils",
+  "name": "@jccnpm/utils",
   "version": "0.1.0",
   "description": "Shared utility helpers for the ui-lib workspace.",
   "type": "module",
@@ -23,6 +23,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

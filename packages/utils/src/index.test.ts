@@ -1,6 +1,6 @@
 import { clamp, cx, isNil } from './index';
 
-describe('@ui-lib/utils', () => {
+describe('@jccnpm/utils', () => {
   it('should merge nested class name values', () => {
     expect(cx('ui-button', ['is-loading', { 'is-disabled': true }], 0, false)).toBe(
       'ui-button is-loading is-disabled 0',

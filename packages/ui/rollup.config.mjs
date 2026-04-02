@@ -7,5 +7,5 @@ const packageDir = fileURLToPath(new URL('./', import.meta.url));
 export default createPackageConfig({
   packageDir,
   css: true,
-  external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime', '@ui-lib/utils'],
+  external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime', '@jccnpm/utils'],
 });

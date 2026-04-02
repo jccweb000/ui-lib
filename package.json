@@ -8,14 +8,17 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
-    "dev": "pnpm --filter @ui-lib/playground dev",
+    "dev": "pnpm --filter @jccnpm/playground dev",
     "build": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t build --all --output-style=stream",
     "test": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t test --all --output-style=stream",
     "lint": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t lint --all --output-style=stream",
     "typecheck": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t typecheck --all --output-style=stream",
+    "release:login": "npm login --registry=https://registry.npmjs.org/ --scope=@jccnpm",
+    "release:whoami": "node ./tools/release/check-npm-login.mjs",
+    "release:preflight": "pnpm lint && pnpm test && pnpm build && pnpm typecheck && pnpm release:whoami && pnpm release:publish:dry",
     "release:version": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/lerna/dist/cli.js version --yes",
     "release:publish:dry": "node ./tools/release/publish-dry-run.mjs",
-    "release:publish": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/lerna/dist/cli.js publish from-package --yes"
+    "release:publish": "pnpm release:whoami && NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/lerna/dist/cli.js publish from-package --yes"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.8",

@@ -4,8 +4,8 @@
 
 当前仓库包含 3 个项目：
 
-- `packages/ui`：UI 组件包，包名为 `@ui-lib/ui`
-- `packages/utils`：工具函数包，包名为 `@ui-lib/utils`
+- `packages/ui`：UI 组件包，包名为 `@jccnpm/ui`
+- `packages/utils`：工具函数包，包名为 `@jccnpm/utils`
 - `apps/playground`：本地调试应用，用于联调组件、主题和工具函数
 
 ## 技术栈
@@ -39,7 +39,7 @@
 
 ## 样式系统
 
-`@ui-lib/ui` 采用三层 token 结构：
+`@jccnpm/ui` 采用三层 token 结构：
 
 1. 基础 token：颜色、字号、间距、圆角等原子值
 2. 语义 token：`primary`、`text`、`border`、`bg-container` 等场景抽象
@@ -70,7 +70,7 @@ pnpm install
 pnpm dev
 ```
 
-该命令会启动 `apps/playground`，页面直接消费 `@ui-lib/ui` 和 `@ui-lib/utils` 的源码入口，适合调试：
+该命令会启动 `apps/playground`，页面直接消费 `@jccnpm/ui` 和 `@jccnpm/utils` 的源码入口，适合调试：
 
 - 组件交互
 - 主题切换
@@ -97,14 +97,14 @@ pnpm build
 如果只想执行某个项目的命令，可以使用 `pnpm --filter`：
 
 ```bash
-pnpm --filter @ui-lib/ui run test
-pnpm --filter @ui-lib/utils run build
-pnpm --filter @ui-lib/playground run dev
+pnpm --filter @jccnpm/ui run test
+pnpm --filter @jccnpm/utils run build
+pnpm --filter @jccnpm/playground run dev
 ```
 
 ## 构建产物
 
-### `@ui-lib/utils`
+### `@jccnpm/utils`
 
 构建后输出：
 
@@ -112,7 +112,7 @@ pnpm --filter @ui-lib/playground run dev
 - `dist/index.cjs`
 - `dist/index.d.ts`
 
-### `@ui-lib/ui`
+### `@jccnpm/ui`
 
 构建后输出：
 
@@ -123,10 +123,19 @@ pnpm --filter @ui-lib/playground run dev
 
 对外入口：
 
-- `@ui-lib/ui`
-- `@ui-lib/ui/styles.css`
+- `@jccnpm/ui`
+- `@jccnpm/ui/styles.css`
 
 ## 发布流程
+
+当前发布目标已经固定为：
+
+- registry：`https://registry.npmjs.org/`
+- scope：`@jccnpm`
+- 认证方式：`npm login`
+- 发布方式：本地手动发布
+
+仓库根目录的 [.npmrc](/Users/jichangchun/code/personal/ui-lib/.npmrc) 已经写入 scope 到 npm 官方源的映射，不包含任何账号或凭据。
 
 ### 前置条件
 
@@ -137,7 +146,90 @@ pnpm --filter @ui-lib/playground run dev
 3. 已完成 `pnpm lint && pnpm test && pnpm build && pnpm typecheck`
 4. 已完成 npm 登录，具备目标 scope 的发布权限
 
-### 1. 发布前检查
+### 推荐发版本顺序
+
+日常发版建议直接按下面顺序执行：
+
+1. 登录 npm
+
+```bash
+pnpm release:login
+```
+
+2. 执行完整预检
+
+```bash
+pnpm release:preflight
+```
+
+3. 生成版本号和 tag
+
+```bash
+pnpm release:version
+```
+
+4. 检查版本变更结果，确认 `packages/ui/package.json`、`packages/utils/package.json` 和 git tag 符合预期
+
+5. 如果需要把版本提交和 tag 同步到远端，执行：
+
+```bash
+git push origin main --follow-tags
+```
+
+6. 正式发布：
+
+```bash
+pnpm release:publish
+```
+
+简化理解就是：
+
+```bash
+pnpm release:login
+pnpm release:preflight
+pnpm release:version
+git push origin main --follow-tags
+pnpm release:publish
+```
+
+### 1. 登录 npm
+
+首次发布前执行：
+
+```bash
+pnpm release:login
+```
+
+该命令等价于：
+
+```bash
+npm login --registry=https://registry.npmjs.org/ --scope=@jccnpm
+```
+
+### 2. 校验当前登录账号
+
+```bash
+pnpm release:whoami
+```
+
+该命令会执行 `npm whoami`，确认当前终端已经登录到 npm 官方源。
+
+### 3. 一次性执行发布前预检
+
+```bash
+pnpm release:preflight
+```
+
+该命令会依次执行：
+
+- `pnpm lint`
+- `pnpm test`
+- `pnpm build`
+- `pnpm typecheck`
+- `pnpm release:whoami`
+- `pnpm release:publish:dry`
+
+### 4. 发布前打包检查
 
 ```bash
 pnpm release:publish:dry
@@ -149,7 +241,7 @@ pnpm release:publish:dry
 - `files` / `exports` / `types` 是否正确
 - 发布产物是否已经生成
 
-### 2. 升级版本
+### 5. 升级版本
 
 ```bash
 pnpm release:version
@@ -166,13 +258,13 @@ pnpm release:version
 - 该步骤依赖 git 仓库
 - 建议在执行前先提交当前改动
 
-### 3. 正式发布
+### 6. 正式发布
 
 ```bash
 pnpm release:publish
 ```
 
-该命令会基于已经写入版本号的包执行 `lerna publish from-package`。
+该命令会先执行 `pnpm release:whoami`，然后基于已经写入版本号的包执行 `lerna publish from-package`。
 
 适用场景：
 
@@ -182,13 +274,13 @@ pnpm release:publish
 
 ## 包内开发约定
 
-### `@ui-lib/ui`
+### `@jccnpm/ui`
 
 - 组件通过统一 class 规范管理结构、状态和变体
 - 主题覆盖通过 `ThemeProvider` 注入 CSS Variables
 - 组件内部尽量不依赖大量内联样式
 
-### `@ui-lib/utils`
+### `@jccnpm/utils`
 
 - 保持纯函数和通用工具定位
 - 不引入 React 依赖
@@ -196,22 +288,15 @@ pnpm release:publish
 
 ## 当前已提供内容
 
-### `@ui-lib/ui`
+### `@jccnpm/ui`
 
 - `Button`
 - `Input`
 - `ThemeProvider`
 - `ThemeOverrides`
 
-### `@ui-lib/utils`
+### `@jccnpm/utils`
 
 - `cx`
 - `clamp`
 - `isNil`
-
-## 后续可扩展方向
-
-- 增加更多基础组件
-- 扩展暗色主题和品牌主题
-- 补充 Storybook 或文档站
-- 接入 CI、自动化版本发布和 npm registry 配置

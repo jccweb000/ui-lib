@@ -1,7 +1,7 @@
 import type { CSSProperties, PropsWithChildren } from 'react';
 import { createContext, useContext } from 'react';
 
-import { cx } from '@ui-lib/utils';
+import { cx } from '@jccnpm/utils';
 
 import type { ThemeOverrides } from './types';
 import { mergeThemeOverrides, themeToStyle } from './utils';

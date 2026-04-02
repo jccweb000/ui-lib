@@ -5,7 +5,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   resolve: {
     alias: {
-      '@ui-lib/utils': path.resolve(__dirname, '../utils/src/index.ts'),
+      '@jccnpm/utils': path.resolve(__dirname, '../utils/src/index.ts'),
     },
   },
   test: {

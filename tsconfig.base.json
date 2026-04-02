@@ -20,13 +20,13 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@ui-lib/utils": [
+      "@jccnpm/utils": [
         "packages/utils/src/index.ts"
       ],
-      "@ui-lib/ui": [
+      "@jccnpm/ui": [
         "packages/ui/src/index.ts"
       ],
-      "@ui-lib/ui/styles.css": [
+      "@jccnpm/ui/styles.css": [
         "packages/ui/src/styles.css"
       ]
     }

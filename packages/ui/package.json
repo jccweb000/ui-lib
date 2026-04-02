@@ -1,5 +1,5 @@
 {
-  "name": "@ui-lib/ui",
+  "name": "@jccnpm/ui",
   "version": "0.1.0",
   "description": "React 18 component primitives for the ui-lib workspace.",
   "type": "module",
@@ -24,13 +24,14 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@ui-lib/utils": "workspace:*"
+    "@jccnpm/utils": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

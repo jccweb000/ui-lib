@@ -10,15 +10,15 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: '@ui-lib/ui/styles.css',
+        find: '@jccnpm/ui/styles.css',
         replacement: path.resolve(workspaceRoot, 'packages/ui/src/styles.css'),
       },
       {
-        find: '@ui-lib/ui',
+        find: '@jccnpm/ui',
         replacement: path.resolve(workspaceRoot, 'packages/ui/src/index.ts'),
       },
       {
-        find: '@ui-lib/utils',
+        find: '@jccnpm/utils',
         replacement: path.resolve(workspaceRoot, 'packages/utils/src/index.ts'),
       },
     ],

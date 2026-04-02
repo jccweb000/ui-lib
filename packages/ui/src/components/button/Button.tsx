@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { cx } from '@ui-lib/utils';
+import { cx } from '@jccnpm/utils';
 
 export type ButtonVariant = 'ghost' | 'primary' | 'secondary';
 export type ButtonSize = 'lg' | 'md' | 'sm';

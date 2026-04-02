@@ -1,5 +1,5 @@
 {
-  "name": "@ui-lib/playground",
+  "name": "@jccnpm/playground",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -11,8 +11,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@ui-lib/ui": "workspace:*",
-    "@ui-lib/utils": "workspace:*",
+    "@jccnpm/ui": "workspace:*",
+    "@jccnpm/utils": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

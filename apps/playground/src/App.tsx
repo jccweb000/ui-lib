@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Button, Input, ThemeProvider } from '@ui-lib/ui';
-import type { ThemeOverrides } from '@ui-lib/ui';
-import { clamp, isNil } from '@ui-lib/utils';
+import { Button, Input, ThemeProvider } from '@jccnpm/ui';
+import type { ThemeOverrides } from '@jccnpm/ui';
+import { clamp, isNil } from '@jccnpm/utils';
 
 import './App.css';
 
@@ -68,7 +68,7 @@ export default function App() {
             <span className="eyebrow">Nx + Rollup + Lerna</span>
             <h1>ui-lib playground</h1>
             <p className="hero-copy">
-              当前页面直接消费 <code>@ui-lib/ui</code> 与 <code>@ui-lib/utils</code>，用于验证
+              当前页面直接消费 <code>@jccnpm/ui</code> 与 <code>@jccnpm/utils</code>，用于验证
               三层 token、运行时主题切换和局部换肤链路。
             </p>
           </div>

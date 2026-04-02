@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes } from 'react';
 
-import { cx } from '@ui-lib/utils';
+import { cx } from '@jccnpm/utils';
 
 export type InputSize = 'lg' | 'md' | 'sm';
 

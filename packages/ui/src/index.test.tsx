@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import { Button, Input, ThemeProvider } from './index';
 
-describe('@ui-lib/ui', () => {
+describe('@jccnpm/ui', () => {
   it('should render button classes for size, variant and loading state', () => {
     render(
       <Button loading size="lg" variant="secondary">
