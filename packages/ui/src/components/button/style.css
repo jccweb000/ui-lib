@@ -1,0 +1,97 @@
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ui-component-button-gap);
+  min-width: 0;
+  border: 1px solid transparent;
+  border-radius: var(--ui-component-button-border-radius);
+  background: var(--ui-component-button-secondary-bg);
+  color: var(--ui-component-button-secondary-text);
+  font-size: var(--ui-component-button-font-size);
+  font-weight: var(--ui-component-button-font-weight);
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    opacity 160ms ease;
+}
+
+.ui-button:focus-visible {
+  outline: none;
+  box-shadow: var(--ui-semantic-focus-ring);
+}
+
+.ui-button--sm {
+  height: var(--ui-component-button-height-sm);
+  padding-inline: var(--ui-component-button-padding-inline-sm);
+}
+
+.ui-button--md {
+  height: var(--ui-component-button-height-md);
+  padding-inline: var(--ui-component-button-padding-inline-md);
+}
+
+.ui-button--lg {
+  height: var(--ui-component-button-height-lg);
+  padding-inline: var(--ui-component-button-padding-inline-lg);
+}
+
+.ui-button--primary {
+  background: var(--ui-component-button-primary-bg);
+  color: var(--ui-component-button-primary-text);
+}
+
+.ui-button--primary:hover:not(.is-disabled) {
+  background: var(--ui-component-button-primary-bg-hover);
+}
+
+.ui-button--secondary {
+  border-color: var(--ui-component-button-secondary-border);
+}
+
+.ui-button--secondary:hover:not(.is-disabled) {
+  background: var(--ui-component-button-secondary-bg-hover);
+}
+
+.ui-button--ghost {
+  background: transparent;
+  color: var(--ui-component-button-ghost-text);
+}
+
+.ui-button--ghost:hover:not(.is-disabled) {
+  background: var(--ui-component-button-ghost-bg-hover);
+}
+
+.ui-button.is-disabled {
+  cursor: not-allowed;
+  opacity: var(--ui-component-button-disabled-opacity);
+}
+
+.ui-button.is-loading {
+  pointer-events: none;
+}
+
+.ui-button__icon,
+.ui-button__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ui-button__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: ui-button-spin 640ms linear infinite;
+}
+
+@keyframes ui-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

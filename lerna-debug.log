@@ -1,0 +1,19 @@
+0 silly argv {
+0 silly argv   _: [ 'ls' ],
+0 silly argv   all: true,
+0 silly argv   a: true,
+0 silly argv   lernaVersion: '7.4.2',
+0 silly argv   '$0': 'node_modules/lerna/dist/cli.js'
+0 silly argv }
+1 notice cli v7.4.2
+2 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*"]
+3 verbose rootPath /Users/jichangchun/code/personal/ui-lib
+4 error Error: Failed to convert JavaScript value `Undefined` into rust type `String`
+4 error     at setupWorkspaceContext (/Users/jichangchun/code/personal/ui-lib/node_modules/.pnpm/registry.npmmirror.com+nx@16.10.0/node_modules/nx/src/utils/workspace-context.js:9:24)
+4 error     at ensureContextAvailable (/Users/jichangchun/code/personal/ui-lib/node_modules/.pnpm/registry.npmmirror.com+nx@16.10.0/node_modules/nx/src/utils/workspace-context.js:40:9)
+4 error     at getNxWorkspaceFilesFromContext (/Users/jichangchun/code/personal/ui-lib/node_modules/.pnpm/registry.npmmirror.com+nx@16.10.0/node_modules/nx/src/utils/workspace-context.js:15:5)
+4 error     at retrieveWorkspaceFiles (/Users/jichangchun/code/personal/ui-lib/node_modules/.pnpm/registry.npmmirror.com+nx@16.10.0/node_modules/nx/src/project-graph/utils/retrieve-workspace-files.js:26:138)
+4 error     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+4 error     at async buildProjectGraphWithoutDaemon (/Users/jichangchun/code/personal/ui-lib/node_modules/.pnpm/registry.npmmirror.com+nx@16.10.0/node_modules/nx/src/project-graph/project-graph.js:65:82)
+4 error     at async createProjectGraphAsync (/Users/jichangchun/code/personal/ui-lib/node_modules/.pnpm/registry.npmmirror.com+nx@16.10.0/node_modules/nx/src/project-graph/project-graph.js:116:25)
+4 error     at async detectProjects (/Users/jichangchun/code/personal/ui-lib/node_modules/.pnpm/registry.npmmirror.com+lerna@7.4.2_@types+node@18.19.76/node_modules/lerna/dist/index.js:1455:25)

@@ -1,0 +1,51 @@
+{
+  "name": "ui-lib-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.6.12",
+  "engines": {
+    "node": ">=16.20.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @ui-lib/playground dev",
+    "build": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t build --all --output-style=stream",
+    "test": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t test --all --output-style=stream",
+    "lint": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t lint --all --output-style=stream",
+    "typecheck": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/nx/bin/nx.js run-many -t typecheck --all --output-style=stream",
+    "release:version": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/lerna/dist/cli.js version --yes",
+    "release:publish:dry": "node ./tools/release/publish-dry-run.mjs",
+    "release:publish": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false NX_CACHE_PROJECT_GRAPH=false NX_DISABLE_DB=true node ./node_modules/lerna/dist/cli.js publish from-package --yes"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^18.19.76",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "esbuild": "^0.19.12",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "jsdom": "^22.1.0",
+    "lerna": "^7.4.2",
+    "nx": "^19.8.4",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup": "^3.29.5",
+    "rollup-plugin-dts": "^5.3.1",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "^5.7.3",
+    "vite": "^4.5.5",
+    "vitest": "^0.34.6"
+  }
+}

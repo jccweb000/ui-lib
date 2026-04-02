@@ -1,0 +1,75 @@
+:root,
+.ui-theme-root {
+  /* Base tokens */
+  --ui-base-color-white: #ffffff;
+  --ui-base-color-gray-1: #f5f6f8;
+  --ui-base-color-gray-2: #eef0f3;
+  --ui-base-color-gray-4: #d9dee7;
+  --ui-base-color-gray-6: #aab4c3;
+  --ui-base-color-gray-8: #667085;
+  --ui-base-color-gray-11: #1f2937;
+  --ui-base-color-blue-1: #eff6ff;
+  --ui-base-color-blue-6: #1677ff;
+  --ui-base-color-blue-7: #0958d9;
+  --ui-base-color-red-6: #e5484d;
+  --ui-base-font-size-sm: 12px;
+  --ui-base-font-size-md: 14px;
+  --ui-base-font-size-lg: 16px;
+  --ui-base-spacing-xs: 8px;
+  --ui-base-spacing-sm: 12px;
+  --ui-base-spacing-md: 16px;
+  --ui-base-spacing-lg: 20px;
+  --ui-base-radius-sm: 8px;
+  --ui-base-radius-md: 12px;
+  --ui-base-shadow-focus: 0 0 0 3px rgb(22 119 255 / 18%);
+
+  /* Semantic tokens */
+  --ui-semantic-primary: var(--ui-base-color-blue-6);
+  --ui-semantic-primary-hover: var(--ui-base-color-blue-7);
+  --ui-semantic-text: var(--ui-base-color-gray-11);
+  --ui-semantic-text-secondary: var(--ui-base-color-gray-8);
+  --ui-semantic-text-disabled: var(--ui-base-color-gray-6);
+  --ui-semantic-border: var(--ui-base-color-gray-4);
+  --ui-semantic-border-strong: var(--ui-base-color-gray-6);
+  --ui-semantic-bg-container: var(--ui-base-color-white);
+  --ui-semantic-bg-elevated: #fcfdff;
+  --ui-semantic-bg-disabled: var(--ui-base-color-gray-1);
+  --ui-semantic-danger: var(--ui-base-color-red-6);
+  --ui-semantic-focus-ring: var(--ui-base-shadow-focus);
+
+  /* Button tokens */
+  --ui-component-button-font-size: var(--ui-base-font-size-md);
+  --ui-component-button-font-weight: 600;
+  --ui-component-button-gap: 8px;
+  --ui-component-button-border-radius: var(--ui-base-radius-md);
+  --ui-component-button-height-sm: 32px;
+  --ui-component-button-height-md: 40px;
+  --ui-component-button-height-lg: 48px;
+  --ui-component-button-padding-inline-sm: var(--ui-base-spacing-sm);
+  --ui-component-button-padding-inline-md: var(--ui-base-spacing-md);
+  --ui-component-button-padding-inline-lg: var(--ui-base-spacing-lg);
+  --ui-component-button-disabled-opacity: 0.56;
+  --ui-component-button-primary-bg: var(--ui-semantic-primary);
+  --ui-component-button-primary-bg-hover: var(--ui-semantic-primary-hover);
+  --ui-component-button-primary-text: var(--ui-base-color-white);
+  --ui-component-button-secondary-bg: var(--ui-semantic-bg-container);
+  --ui-component-button-secondary-bg-hover: var(--ui-semantic-bg-elevated);
+  --ui-component-button-secondary-text: var(--ui-semantic-text);
+  --ui-component-button-secondary-border: var(--ui-semantic-border);
+  --ui-component-button-ghost-text: var(--ui-semantic-primary);
+  --ui-component-button-ghost-bg-hover: var(--ui-base-color-blue-1);
+
+  /* Input tokens */
+  --ui-component-input-font-size: var(--ui-base-font-size-md);
+  --ui-component-input-border-radius: var(--ui-base-radius-sm);
+  --ui-component-input-height-sm: 32px;
+  --ui-component-input-height-md: 40px;
+  --ui-component-input-height-lg: 48px;
+  --ui-component-input-padding-inline: var(--ui-base-spacing-sm);
+  --ui-component-input-bg: var(--ui-semantic-bg-container);
+  --ui-component-input-bg-disabled: var(--ui-semantic-bg-disabled);
+  --ui-component-input-border-color: var(--ui-semantic-border);
+  --ui-component-input-border-color-hover: var(--ui-semantic-border-strong);
+  --ui-component-input-border-color-focus: var(--ui-semantic-primary);
+  --ui-component-input-placeholder-color: var(--ui-semantic-text-secondary);
+}

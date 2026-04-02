@@ -1,0 +1,51 @@
+.ui-input {
+  width: 100%;
+  border: 1px solid var(--ui-component-input-border-color);
+  border-radius: var(--ui-component-input-border-radius);
+  background: var(--ui-component-input-bg);
+  color: var(--ui-semantic-text);
+  font-size: var(--ui-component-input-font-size);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.ui-input::placeholder {
+  color: var(--ui-component-input-placeholder-color);
+}
+
+.ui-input:hover:not(.is-disabled):not(.is-invalid) {
+  border-color: var(--ui-component-input-border-color-hover);
+}
+
+.ui-input:focus {
+  outline: none;
+  border-color: var(--ui-component-input-border-color-focus);
+  box-shadow: var(--ui-semantic-focus-ring);
+}
+
+.ui-input--sm {
+  height: var(--ui-component-input-height-sm);
+  padding-inline: var(--ui-component-input-padding-inline);
+}
+
+.ui-input--md {
+  height: var(--ui-component-input-height-md);
+  padding-inline: var(--ui-component-input-padding-inline);
+}
+
+.ui-input--lg {
+  height: var(--ui-component-input-height-lg);
+  padding-inline: calc(var(--ui-component-input-padding-inline) + 4px);
+}
+
+.ui-input.is-disabled {
+  background: var(--ui-component-input-bg-disabled);
+  color: var(--ui-semantic-text-disabled);
+  cursor: not-allowed;
+}
+
+.ui-input.is-invalid {
+  border-color: var(--ui-semantic-danger);
+}

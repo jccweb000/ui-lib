@@ -1,0 +1,54 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "playground",
+  "projectType": "application",
+  "sourceRoot": "apps/playground/src",
+  "implicitDependencies": [
+    "ui",
+    "utils"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{projectRoot}/dist"
+      ],
+      "options": {
+        "cwd": "apps/playground",
+        "command": "pnpm run build"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/playground",
+        "command": "pnpm run test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/playground",
+        "command": "pnpm run lint"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/playground",
+        "command": "pnpm run typecheck"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/playground",
+        "command": "pnpm run dev"
+      }
+    }
+  },
+  "tags": [
+    "scope:app",
+    "type:playground"
+  ]
+}
